@@ -16,9 +16,8 @@ jobs:
       - name: Build
         run: |
           ./build-ttf.sh
-          ./build-woff.sh
-          ./build-woff2.sh
-          ./build-subsets.sh
+          ./build-woff.sh --install-dependencies
+          ./build-woff2.sh --install-dependencies
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
