@@ -1,16 +1,10 @@
 name: Build Font
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,10 +15,10 @@ jobs:
           sudo apt-get install fontmake fonttools -y
       - name: Build
         run: |
-          build-ttf.sh
-          build-woff.sh
-          build-woff2.sh
-          build-subsets.sh
+          ./build-ttf.sh
+          ./build-woff.sh
+          ./build-woff2.sh
+          ./build-subsets.sh
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
