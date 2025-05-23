@@ -12,7 +12,7 @@ jobs:
       - name: Setup
         run: |
           sudo apt-get update 
-          sudo apt-get install fontmake fonttools -y
+          sudo apt-get install fontmake fonttools sfnt2woff-zopfli -y
       - name: Build
         run: |
           ./build-ttf.sh
